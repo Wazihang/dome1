@@ -41,7 +41,7 @@ $(function () {
             type: 'POST',
             // 指定请求的 URL 地址
             // 注意：必须是 【请求根路径】 拼接上 【具体的 URL 地址】
-            url: 'http://www.liulongbin.top:3007/api/reguser',
+            url: '/api/reguser',
             // 指定请求的数据
             data: $(this).serialize(),
             // 指定成功的回调函数
@@ -65,7 +65,7 @@ $(function () {
         // 2. 手动发起 ajax 请求
         $.ajax({
             type: 'POST',
-            url: 'http://www.liulongbin.top:3007/api/login',
+            url: '/api/login',
             data: $(this).serialize(),
             success: function (res) {
                 // 先使用 if 判断失败的请求，然后 return 出去
@@ -77,7 +77,7 @@ $(function () {
                 layer.msg('登录成功！')
                 // 将服务器颁发的 token 字符串，持久化存储到 localStorage
                 localStorage.setItem('token', res.token)
-                // 跳转到后台首页
+                // 跳转到后台首页  BOM
                 location.href = '/index.html'
             }
         })
